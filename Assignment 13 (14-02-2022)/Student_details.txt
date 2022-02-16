@@ -1,0 +1,62 @@
+mysql> create database student_detailsdb;
+Query OK, 1 row affected (0.14 sec)
+
+mysql> use student_detailsbd;
+ERROR 1049 (42000): Unknown database 'student_detailsbd'
+mysql> use student_detailsdb;
+Database changed
+mysql> create table Student_details(Student_name varchar(30),Student_id int NOT NULL UNIQUE,Student_rollno int NOT NULL UNIQUE,Area varchar(30) NOT NULL);
+Query OK, 0 rows affected (1.92 sec)
+
+mysql> describe Student_details;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| Student_name   | varchar(30) | YES  |     | NULL    |       |
+| Student_id     | int         | NO   | PRI | NULL    |       |
+| Student_rollno | int         | NO   | UNI | NULL    |       |
+| Area           | varchar(30) | NO   |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.18 sec)
+
+mysql> insert into Student_details values('Rajiv',20,11260010,'TVK Nagar');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select*from Students_details;
+ERROR 1146 (42S02): Table 'student_detailsdb.students_details' doesn't exist
+mysql> select*from Student_details;
++--------------+------------+----------------+-----------+
+| Student_name | Student_id | Student_rollno | Area      |
++--------------+------------+----------------+-----------+
+| Rajiv        |         20 |       11260010 | TVK Nagar |
++--------------+------------+----------------+-----------+
+1 row in set (0.04 sec)
+
+mysql>  insert into Student_details values('Prakash',20,11260011,'Perambur');
+ERROR 1062 (23000): Duplicate entry '20' for key 'student_details.Student_id'
+mysql>  insert into Student_details values('Prakash',17,11260011,'Perambur');
+Query OK, 1 row affected (0.17 sec)
+
+mysql> select*from Student_details;
++--------------+------------+----------------+-----------+
+| Student_name | Student_id | Student_rollno | Area      |
++--------------+------------+----------------+-----------+
+| Prakash      |         17 |       11260011 | Perambur  |
+| Rajiv        |         20 |       11260010 | TVK Nagar |
++--------------+------------+----------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> insert into Student_details values('Akash',01,11260001,'Venus'),('Suresh',26,11260027,'Otteri');
+Query OK, 2 rows affected (0.14 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select*from Student_details;
++--------------+------------+----------------+-----------+
+| Student_name | Student_id | Student_rollno | Area      |
++--------------+------------+----------------+-----------+
+| Akash        |          1 |       11260001 | Venus     |
+| Prakash      |         17 |       11260011 | Perambur  |
+| Rajiv        |         20 |       11260010 | TVK Nagar |
+| Suresh       |         26 |       11260027 | Otteri    |
++--------------+------------+----------------+-----------+
+4 rows in set (0.00 sec)

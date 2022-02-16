@@ -1,0 +1,28 @@
+mysql> create database course_detailsdb;
+Query OK, 1 row affected (0.15 sec)
+
+mysql> use course_detailsdb;
+Database changed
+mysql> create table Course_details(Course_name varchar(40),Course_Duration int NOT NULL UNIQUE,Course_Summary varchar(30),Course_practicalhours int NOT NULL UNIQUE,NOT NULL);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NOT NULL)' at line 1
+mysql> create table Course_details(Course_name varchar(40),Course_Duration int NOT NULL UNIQUE,Course_Summary varchar(30),Course_practicalhours int NOT NULL UNIQUE NOT NULL);
+Query OK, 0 rows affected (1.03 sec)
+
+mysql> insert into Course_details values('MECHANICAL',4,'FIELD WORK',180),('AUTOMOBILE',4,'MACHINE WORK',260),('MBA_MASTERS',5,'OFFICE WORK',200),('ECE',4,'SENSOR WORK',260);
+ERROR 1062 (23000): Duplicate entry '4' for key 'course_details.Course_Duration'
+mysql> insert into Course_details values('MECHANICAL',4,'FIELD WORK',180),('AUTOMOBILE',4,'MACHINE WORK',260),('MBA_MASTERS',5,'OFFICE WORK',200),('ECE',4,'SENSOR WORK',280);
+ERROR 1062 (23000): Duplicate entry '4' for key 'course_details.Course_Duration'
+mysql> insert into Course_details values('MECHANICAL',7,'FIELD WORK',180),('AUTOMOBILE',3,'MACHINE WORK',260),('MBA_M0ASTERS',5,'OFFICE WORK',200),('ECE',6,'SENSOR WORK',280);
+Query OK, 4 rows affected (0.15 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from Course_details;
++--------------+-----------------+----------------+-----------------------+
+| Course_name  | Course_Duration | Course_Summary | Course_practicalhours |
++--------------+-----------------+----------------+-----------------------+
+| AUTOMOBILE   |               3 | MACHINE WORK   |                   260 |
+| MBA_M0ASTERS |               5 | OFFICE WORK    |                   200 |
+| ECE          |               6 | SENSOR WORK    |                   280 |
+| MECHANICAL   |               7 | FIELD WORK     |                   180 |
++--------------+-----------------+----------------+-----------------------+
+4 rows in set (0.00 sec)
