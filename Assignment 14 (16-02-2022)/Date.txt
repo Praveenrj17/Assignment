@@ -1,0 +1,3 @@
+create database datedb;
+use datedb; 
+    select (subdate(adddate(curdate(), interval 1 month), interval dayofmonth (curdate()) day) )as lastdayofmonth

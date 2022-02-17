@@ -1,0 +1,6 @@
+create database detailsdb;
+create table Employee (Department_name varchar(300),Manager_name varchar(300),Salary int,Working_years int )
+insert into Employee values ('Finance','Magesh',40000 , 4)
+insert into Employee values('Marketing','Vijay',30000,5),('Management','Suji',35000,6),('Sales','Simbu',45000,7)
+select*from Employee
+select Department_name,Manager_name,Salary,Working_years from Employee where Working_years>5;
