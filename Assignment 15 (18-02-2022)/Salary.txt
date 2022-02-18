@@ -1,0 +1,7 @@
+create database dam; 
+use damdb;
+create table Run  (Emp_ID int primary key auto_increment,Emp_Name varchar(300),Emp_number int,Emp_salary int, Role varchar(300))
+insert into Run values(250,'Jithu',987099008,25600,'Sales')
+insert into Run values (251,'Paramesh',554443399,30000,'Admin'),(252,'Ramesh',778866554,56000,'Programmer'),(253,'Saran',990088776,38000,'TE')
+select*from Run
+select Emp_ID,Emp_Name,Emp_number,Role,Emp_salary from Run where (Emp_salary)>50000

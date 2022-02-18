@@ -1,0 +1,10 @@
+create database dindb;
+drop table Laip
+create table Lip(Emp_ID int not null,First_name varchar (50),Last_name varchar(7),Phone_number int not null,Hire_date int,Job_id int,Salary int,Commision_pct int not null,Manager_id int,Department_id int)
+insert into Lip values (10,'Raj','G',998866554,2009-08-12,110,2000,20.1,0.1,100)
+insert into Lip values (11,'Ria','M',998896554,2009-05-12,120,2000,20.2,0.2,101)
+insert into Lip values (12,'Raish','P',999866554,2002-08-12,130,8000,20.4,0.3,102)
+insert into Lip values (13,'Rai','O',798866554,2021-08-19,140,9000,20.5,0.5,200)
+insert into Lip values (14,'Ram','R',998876554,2019-13-12,150,3000,20.6,0.6,130)
+select*from Lip
+select Job_id, max(Salary) from Lip group by Emp_Id having max(Salary)>4000
